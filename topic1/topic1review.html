@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Math 3607 Topic 1 Review</title>
+<meta name="author" content="(Tae Eun Kim, Ph.D.)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/beige.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Math 3607 Topic 1 Review</h1><p class="date">Created: 2021-02-02 Tue 23:59</p>
+</section>
+
+
+
+<section>
+<section id="slide-org33d4ec6">
+<h2 id="org33d4ec6">Table of Contents</h2>
+<ul>
+<li><a href="#/slide-orgcabcc45">Topic 1 Overview</a>
+<ul>
+<li><a href="#/slide-orga3dff58">MATLAB The Calculator</a></li>
+<li><a href="#/slide-org89b5682">Useful Commands</a></li>
+<li><a href="#/slide-org4b08398">Interactive Features</a></li>
+<li><a href="#/slide-orga7825a5">Conditional Statements (if-statements)</a></li>
+<li><a href="#/slide-org5774f7f">Relational and Logical Operations</a></li>
+<li><a href="#/slide-org3ddbd6c">Iterations</a></li>
+<li><a href="#/slide-org637edde">Arrays</a></li>
+<li><a href="#/slide-org02b4165">Timing</a></li>
+<li><a href="#/slide-org986216d">Graphics</a></li>
+<li><a href="#/slide-orgbb84898">User-Defined Functions</a></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org33d4ec6-split">
+
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#/slide-orgc8d0a1d">Key Examples and Problems to Review</a>
+<ul>
+<li><a href="#/slide-orgdf8d8fc">Leap year</a></li>
+<li><a href="#/slide-org10c1687">Coordinate Conversion</a></li>
+<li><a href="#/slide-org1c3ccc4">Approximation and Sequences</a></li>
+<li><a href="#/slide-org7cd70f7">Randomness and Simulations</a></li>
+<li><a href="#/slide-org986216d">Graphics</a></li>
+<li><a href="#/slide-org61fc692">Spiral Triangle</a></li>
+<li><a href="#/slide-orgaaf1e9e">"Elegant" Construction/Manipulation of Arrays</a></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgcabcc45">
+<h2 id="orgcabcc45">Topic 1 Overview</h2>
+<div class="outline-text-2" id="text-orgcabcc45">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orga3dff58">
+<h3 id="orga3dff58">MATLAB The Calculator</h3>
+<ul>
+<li>arithmetic operations</li>
+<li>scientific notation</li>
+<li>elementary functions
+<ul>
+<li>trig: <code>sin</code>, <code>cos</code>, <code>tan</code>, <code>sind</code>, <code>cosd</code>, <code>tand</code>, \ldots</li>
+<li>inv trig: <code>asin</code>, <code>acos</code>, <code>atan</code>, <code>atan2</code>, \ldots</li>
+<li>exp and log: <code>exp</code>, <code>log</code> (natural), <code>log2</code>, <code>log10</code>, \ldots</li>
+<li>factorial: <code>factorial</code></li>
+<li>roots: <code>sqrt</code>, <code>nthroot</code></li>
+<li>misc: <code>mod</code>, <code>rem</code>, <code>ceil</code>, <code>floor</code>, <code>primes</code></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org89b5682">
+<h3 id="org89b5682">Useful Commands</h3>
+<ul>
+<li><code>format</code>
+<ul>
+<li><code>short</code>, <code>short e</code>, <code>short g</code></li>
+<li><code>long</code>, <code>long e</code>, <code>long g</code></li>
+<li><code>loose</code>, <code>compact</code></li>
+
+</ul></li>
+<li><code>clear</code></li>
+<li><code>clc</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org4b08398">
+<h3 id="org4b08398">Interactive Features</h3>
+<ul>
+<li><code>input</code></li>
+<li><code>disp</code></li>
+<li><code>fprintf</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orga7825a5">
+<h3 id="orga7825a5">Conditional Statements (if-statements)</h3>
+<ul>
+<li>Allow a code to run under contingency.</li>
+<li>Conditions are logical expressions; see below.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org5774f7f">
+<h3 id="org5774f7f">Relational and Logical Operations</h3>
+<ul>
+<li>Relational operators:
+<ul>
+<li><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>~=</code></li>
+<li>test the nature of relation between two variables</li>
+<li>results are either <code>true</code> or <code>false</code> (logical variables)</li>
+
+</ul></li>
+<li>Logical operators:
+<ul>
+<li>operate on logical variables</li>
+<li>and (<code>&amp;&amp;</code>), or (<code>||</code>), not (<code>~</code>), exclusive or (<code>xor</code>)</li>
+
+</ul></li>
+<li>Essential ingredient in forming conditional statements</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org3ddbd6c">
+<h3 id="org3ddbd6c">Iterations</h3>
+<ul>
+<li>for-loop</li>
+<li>while-loop</li>
+<li>panic buttons: <code>break</code>, <code>continue</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org637edde">
+<h3 id="org637edde">Arrays</h3>
+<ul>
+<li>construction
+<ul>
+<li><code>zeros</code>, <code>ones</code>, <code>eye</code>, <code>diag</code></li>
+<li><code>rand</code>, <code>randi</code>, <code>randn</code></li>
+<li>colon operator (<code>:</code>)</li>
+<li><code>linspace</code> and <code>logspace</code></li>
+
+</ul></li>
+<li>operations
+<ul>
+<li><i>linear algebra</i>: inner/outer products</li>
+<li>elementwise (<code>.*</code>, <code>./</code>, <code>.^</code>)</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org637edde-split">
+
+<h3>Arrays</h3>
+<ul>
+<li>building array out of arrays
+<ul>
+<li>concatenation</li>
+<li><code>reshape</code> and <code>repmat</code></li>
+
+</ul></li>
+<li>slicing
+<ul>
+<li>extract/replace part or all of a row/column</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org637edde-split">
+
+<h3>Arrays</h3>
+<ul>
+<li>Array(Data) Manipulation
+<ul>
+<li><code>max</code>, <code>min</code></li>
+<li><code>sum</code>, <code>prod</code></li>
+<li><code>cumsum</code>, <code>cumprod</code></li>
+<li><code>diff</code></li>
+<li><code>sort</code></li>
+<li><code>mean</code>, <code>std</code>, <code>var</code></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org02b4165">
+<h3 id="org02b4165">Timing</h3>
+<ul>
+<li><code>cputime</code></li>
+<li><code>tic</code> and <code>toc</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org986216d">
+<h3 id="org986216d">Graphics</h3>
+<ul>
+<li>customizing appearance to plots
+<ul>
+<li>color</li>
+<li>marker</li>
+<li>line style</li>
+
+</ul></li>
+<li>modifying figure window
+<ul>
+<li><code>close</code>, <code>clf</code>, <code>shg</code></li>
+<li><code>axis equal</code>, <code>axis tight</code>, <code>axis image</code></li>
+<li><code>xlabel</code>, <code>ylabel</code>, <code>title</code></li>
+<li><code>legend</code></li>
+<li><code>hold on</code>, <code>hold off</code></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org986216d-split">
+
+<h3>Graphics</h3>
+<ul>
+<li>multiple plots
+<ul>
+<li>stacking</li>
+<li>subplot</li>
+
+</ul></li>
+<li>3-D graphics: <code>plot3</code> and <code>surf</code></li>
+<li><code>meshgrid</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgbb84898">
+<h3 id="orgbb84898">User-Defined Functions</h3>
+<ul>
+<li>anonymous functions</li>
+<li>function m-files
+<ul>
+<li>local variable</li>
+<li>pass by value</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc8d0a1d">
+<h2 id="orgc8d0a1d">Key Examples and Problems to Review</h2>
+<div class="outline-text-2" id="text-orgc8d0a1d">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgdf8d8fc">
+<h3 id="orgdf8d8fc">Leap year</h3>
+<ul>
+<li>Lecture 3</li>
+<li>HW02, Problem 1</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org10c1687">
+<h3 id="org10c1687">Coordinate Conversion</h3>
+<ul>
+<li>Lecture 3</li>
+<li>HW02, Problem 2</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org1c3ccc4">
+<h3 id="org1c3ccc4">Approximation and Sequences</h3>
+<div class="outline-text-3" id="text-org1c3ccc4">
+</div>
+<ul class="org-ul">
+<li><a id="orgaf73d8f"></a>Approximation of \(\pi\) by tiling (Lecture 4)<br /></li>
+<li><a id="org7147d52"></a>Sequences convering to \(\pi\) (HW02, Problem 5)<br /></li>
+<li><a id="org01f06dc"></a>Up/Down Sequence (Lecture 5)<br /></li>
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org7cd70f7">
+<h3 id="org7cd70f7">Randomness and Simulations</h3>
+<div class="outline-text-3" id="text-org7cd70f7">
+</div>
+<ul class="org-ul">
+<li><a id="orgb468582"></a>Game of 3-Stick (Lecture 4; HW02, Problem 4)<br /></li>
+<li><a id="org77cefd5"></a>Gap of 10 (Lecture 5; HW03, Problem 2)<br /></li>
+<li><a id="org44ed478"></a>Birthday problem (Lecture 7; HW03, Problem 6)<br /></li>
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orga4ebcf2">
+<h3 id="orga4ebcf2">Graphics</h3>
+<p>
+How is each of the following function types plotted in MATLAB?
+</p>
+<ul>
+<li>\(y = f(x)\)</li>
+<li>\(r = f(\theta)\)</li>
+<li>\(\mathbf{r}(t) = \langle x(t), y(t) \rangle\)</li>
+<li>\(\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle\)</li>
+<li>\(z = f(x,y)\)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org61fc692">
+<h3 id="org61fc692">Spiral Triangle</h3>
+<ul>
+<li>Lecture 09</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgaaf1e9e">
+<h3 id="orgaaf1e9e">"Elegant" Construction/Manipulation of Arrays</h3>
+<ul>
+<li>Problem 3, 4, 5 of HW03</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+width:1280, height:720, margin: 0.1, minScale:0.2, maxScale:2.5,
+transition:'none',
+center:false,
+reveal_history:true,
+slideNumber:'c/t',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>
