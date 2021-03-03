@@ -142,21 +142,76 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">Math 3607 Topic 2 Review </h1><p class="date">Created: 2021-03-02 Tue 22:58</p>
+<section id="sec-title-slide"><h1 class="title">Math 3607 Topic 2 Review </h1><p class="date">Created: 2021-03-03 Wed 10:14</p>
 </section>
 
 
 
 <section>
-<section id="slide-org8096484">
-<h2 id="org8096484">Preliminaries</h2>
-<div class="outline-text-2" id="text-org8096484">
+<section id="slide-orgee86d8c">
+<h2 id="orgee86d8c">Table of Contents</h2>
+<ul>
+<li><a href="#/slide-org7c73cae">Preliminaries</a>
+<ul>
+<li><a href="#/slide-org4c78588">Two Types of Errors</a></li>
+<li><a href="#/slide-org9e06b4f">Floating-Point Numbers</a></li>
+<li><a href="#/slide-org9e06b4f">Floating-Point Numbers</a></li>
+<li><a href="#/slide-org230225b">Conditioning (of a problem)</a></li>
+<li><a href="#/slide-org9104f78">Stability (of an algorithm)</a></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgee86d8c-split">
+
+<h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#/slide-org5c94bf6">Square Linear Systems</a>
+<ul>
+<li><a href="#/slide-org7c518e0">Polynomial Interpolation</a></li>
+<li><a href="#/slide-org928d6eb">Gaussian Elimination and (P)LU Factorization</a></li>
+<li><a href="#/slide-org7cf1d0f">Norms</a></li>
+<li><a href="#/slide-org12879c2">Row and Column Operations</a></li>
+<li><a href="#/slide-orga75dffd">Conditioning/Stability</a></li>
+<li><a href="#/slide-org6f607ea">Programming Notes</a></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgee86d8c-split">
+
+<h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#/slide-orge67ef01">Overdetermined Linear Systems</a>
+<ul>
+<li><a href="#/slide-org78db041">Polynomial Approximation</a></li>
+<li><a href="#/slide-orga0ee740">QR Factorization</a></li>
+<li><a href="#/slide-org2387b25">Two Types of QR Factorization</a></li>
+<li><a href="#/slide-orgefb8911">Householder Transformation Matrices</a></li>
+<li><a href="#/slide-org6f607ea">Programming Notes</a></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org7c73cae">
+<h2 id="org7c73cae">Preliminaries</h2>
+<div class="outline-text-2" id="text-org7c73cae">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-org0dd3118">
-<h3 id="org0dd3118">Two Types of Errors</h3>
+<section id="slide-org4c78588">
+<h3 id="org4c78588">Two Types of Errors</h3>
 <ul>
 <li>absolute error</li>
 <li>relative error</li>
@@ -165,12 +220,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org27d0d22">
-<h3 id="org27d0d22">Floating-Point Numbers</h3>
+<section id="slide-org9e06b4f">
+<h3 id="org9e06b4f">Floating-Point Numbers</h3>
 <ul>
 <li>binary scientific notation:
 \[
-   \pm \left(1 + \frac{b_1}{2} + \frac{b_2}{2^2} + \frac{b_d}{2^d}\right) 2^E,
+   \pm \left(1 + \frac{b_1}{2} + \frac{b_2}{2^2} + \cdots + \frac{b_d}{2^d}\right) 2^E,
    \]
 where \(b_i\) is 0 or 1 and \(E\) is an integer.
 <ul>
@@ -190,8 +245,8 @@ where \(b_i\) is 0 or 1 and \(E\) is an integer.
 </section>
 </section>
 <section>
-<section id="slide-org67b7aec">
-<h3 id="org67b7aec">Floating-Point Numbers</h3>
+<section id="slide-org1d3d92b">
+<h3 id="org1d3d92b">Floating-Point Numbers</h3>
 <ul>
 <li>Key features
 <ul>
@@ -207,8 +262,8 @@ where \(b_i\) is 0 or 1 and \(E\) is an integer.
 </section>
 </section>
 <section>
-<section id="slide-org8f36abe">
-<h3 id="org8f36abe">Conditioning (of a problem)</h3>
+<section id="slide-org230225b">
+<h3 id="org230225b">Conditioning (of a problem)</h3>
 <ul>
 <li>The condition number measures the ratio of error in the result (or output) to error in the data (or input).</li>
 <li>Recall the definition of condition number \(\kappa_f(x)\)</li>
@@ -220,24 +275,25 @@ where \(b_i\) is 0 or 1 and \(E\) is an integer.
 </section>
 </section>
 <section>
-<section id="slide-org891555a">
-<h3 id="org891555a">Stability (of an algorithm)</h3>
+<section id="slide-org9104f78">
+<h3 id="org9104f78">Stability (of an algorithm)</h3>
 <ul>
 <li>When an algorithm produces much more error than can be explained by the condition number, the algorithm is unstable.</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org492a4f8">
-<h2 id="org492a4f8">Square Linear Systems</h2>
-<div class="outline-text-2" id="text-org492a4f8">
+<section id="slide-org5c94bf6">
+<h2 id="org5c94bf6">Square Linear Systems</h2>
+<div class="outline-text-2" id="text-org5c94bf6">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orga98eda1">
-<h3 id="orga98eda1">Polynomial Interpolation</h3>
+<section id="slide-org7c518e0">
+<h3 id="org7c518e0">Polynomial Interpolation</h3>
 <ul>
 <li>Polynomial interpolation leads to a square linear system of equations with a Vandermonde matrix.</li>
 
@@ -246,8 +302,8 @@ where \(b_i\) is 0 or 1 and \(E\) is an integer.
 </section>
 </section>
 <section>
-<section id="slide-orga41afaf">
-<h3 id="orga41afaf">Gaussian Elimination and (P)LU Factorization</h3>
+<section id="slide-org928d6eb">
+<h3 id="org928d6eb">Gaussian Elimination and (P)LU Factorization</h3>
 <ul>
 <li>A triangular linear system is solved by backward substitution or forward elimination.</li>
 <li>A general linear system is solved by Gaussian elimination.</li>
@@ -260,8 +316,8 @@ where \(b_i\) is 0 or 1 and \(E\) is an integer.
 </section>
 </section>
 <section>
-<section id="slide-orgf182e3e">
-<h3 id="orgf182e3e">Norms</h3>
+<section id="slide-org7cf1d0f">
+<h3 id="org7cf1d0f">Norms</h3>
 <ul>
 <li>A norm generalizes the notion of length for vectors and matrices.</li>
 <li>Vector norm
@@ -275,7 +331,7 @@ and
 
 </ul>
 </section>
-<section id="slide-orgf182e3e-split">
+<section id="slide-org7cf1d0f-split">
 
 <h3>Norms</h3>
 <ul>
@@ -294,8 +350,8 @@ and
 </section>
 </section>
 <section>
-<section id="slide-org6952daf">
-<h3 id="org6952daf">Row and Column Operations</h3>
+<section id="slide-org12879c2">
+<h3 id="org12879c2">Row and Column Operations</h3>
 <p>
 Various row and column operations can be emulated by matrix multiplications. ("Left-multiplication for row actions, right-multiplication for column actions")
 </p>
@@ -311,8 +367,8 @@ Various row and column operations can be emulated by matrix multiplications. ("L
 </section>
 </section>
 <section>
-<section id="slide-org8de1850">
-<h3 id="org8de1850">Conditioning/Stability</h3>
+<section id="slide-orga75dffd">
+<h3 id="orga75dffd">Conditioning/Stability</h3>
 <ul>
 <li>Partial pivoting is needed for numerical stability.</li>
 <li>The matrix condition number is equal to the condition number of solving a linear system of equations.</li>
@@ -322,8 +378,8 @@ Various row and column operations can be emulated by matrix multiplications. ("L
 </section>
 </section>
 <section>
-<section id="slide-org2822977">
-<h3 id="org2822977">Programming Notes</h3>
+<section id="slide-org6f607ea">
+<h3 id="org6f607ea">Programming Notes</h3>
 <ul>
 <li>Built-in functionalities
 <ul>
@@ -346,15 +402,15 @@ Various row and column operations can be emulated by matrix multiplications. ("L
 </section>
 </section>
 <section>
-<section id="slide-orgdaa80ef">
-<h2 id="orgdaa80ef">Overdetermined Linear Systems</h2>
-<div class="outline-text-2" id="text-orgdaa80ef">
+<section id="slide-orge67ef01">
+<h2 id="orge67ef01">Overdetermined Linear Systems</h2>
+<div class="outline-text-2" id="text-orge67ef01">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgbf10ed8">
-<h3 id="orgbf10ed8">Polynomial Approximation</h3>
+<section id="slide-org78db041">
+<h3 id="org78db041">Polynomial Approximation</h3>
 <ul>
 <li>The most common solution to overdetermined systems is obtained by <i>least squares</i>, which minimizes the 2-norm of the residual vector.</li>
 <li>Least squares is used to find fitting functions that depend linearly on the unknown parameters.</li>
@@ -369,8 +425,8 @@ Various row and column operations can be emulated by matrix multiplications. ("L
 </section>
 </section>
 <section>
-<section id="slide-orgc0ffddf">
-<h3 id="orgc0ffddf">QR Factorization</h3>
+<section id="slide-orga0ee740">
+<h3 id="orga0ee740">QR Factorization</h3>
 <ul>
 <li>Orthogonal sets of vectors are preferred to nonorthogonal ones in computing. (no catastrophic cancellation)</li>
 <li>Matrices with orthonormal columns and orthogonal matrices enjoy many <i>nice</i> analytical properties.</li>
@@ -381,8 +437,8 @@ Various row and column operations can be emulated by matrix multiplications. ("L
 </section>
 </section>
 <section>
-<section id="slide-org2a03bea">
-<h3 id="org2a03bea">Two Types of QR Factorization</h3>
+<section id="slide-org2387b25">
+<h3 id="org2387b25">Two Types of QR Factorization</h3>
 <p>
 For \(A \in \RR^{m \times n}\), \(m \ge n\):
 </p>
@@ -407,8 +463,8 @@ For \(A \in \RR^{m \times n}\), \(m \ge n\):
 </section>
 </section>
 <section>
-<section id="slide-orgc5dfb3d">
-<h3 id="orgc5dfb3d">Householder Transformation Matrices</h3>
+<section id="slide-orgefb8911">
+<h3 id="orgefb8911">Householder Transformation Matrices</h3>
 <ul>
 <li>A Householder transformation matrix \(H\) (associated with a vector \(\bz\)) is a <i>reflection</i> matrix which is
 <ul>
@@ -423,8 +479,8 @@ For \(A \in \RR^{m \times n}\), \(m \ge n\):
 </section>
 </section>
 <section>
-<section id="slide-org87b377e">
-<h3 id="org87b377e">Programming Notes</h3>
+<section id="slide-org95ee962">
+<h3 id="org95ee962">Programming Notes</h3>
 <ul>
 <li>Built-in functionalities
 <ul>
