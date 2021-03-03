@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Math 3607 Topic 2 Review </title>
+<meta name="author" content="(Tae Eun Kim, Ph.D.)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/beige.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<div style="display: none"> \(
+%%%% Custom macros
+%%%% Macros
+
+%% Greek letters
+
+\newcommand{\al}{\alpha}
+% \newcommand{\be}{\beta}
+\newcommand{\g}{\gamma}
+\newcommand{\de}{\delta}
+\newcommand{\e}{\epsilon}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ka}{\kappa}
+\newcommand{\la}{\lambda}
+\newcommand{\sig}{\sigma}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+\let\oldth\th %% \th is used for "thorn"
+\renewcommand{\th}{\theta}
+
+%% Tweak some Greek letters
+\newcommand{\bchi}{\mbox{\raisebox{.4ex}{\begin{large}$\chi$\end{large}}}}
+\newcommand{\Chi}{\mbox{\Large$\chi$}} % nicer looking Chi
+\newcommand{\bzeta}{\boldsymbol{\zeta}} % Riemann zeta function
+\newcommand{\bxi}{\boldsymbol{\xi}}
+
+%% Blackboard
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\UU}{\mathbb{U}}
+\newcommand{\1}{\mathbbm{1}}
+
+%% Caligraphic
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+
+
+%% Roman, italic, boldface
+
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bd}{\mathbf{d}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\bg}{\mathbf{g}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\bzero}{\mathbf{0}}
+
+
+%% Delimiters, accents, bars, etc
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\Norm}[2]{\left\|#1\right\|_{#2}}
+% Improvement of the above two
+% example usage: \norm[2]{f} or \Norm[2]{f}{L^2}
+
+
+\newcommand{\vs}{\vspace{1em}}
+\newcommand{\tp}{^{\rm T}}
+\)</div>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Math 3607 Topic 2 Review </h1><p class="date">Created: 2021-03-02 Tue 22:58</p>
+</section>
+
+
+
+<section>
+<section id="slide-org8096484">
+<h2 id="org8096484">Preliminaries</h2>
+<div class="outline-text-2" id="text-org8096484">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org0dd3118">
+<h3 id="org0dd3118">Two Types of Errors</h3>
+<ul>
+<li>absolute error</li>
+<li>relative error</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org27d0d22">
+<h3 id="org27d0d22">Floating-Point Numbers</h3>
+<ul>
+<li>binary scientific notation:
+\[
+   \pm \left(1 + \frac{b_1}{2} + \frac{b_2}{2^2} + \frac{b_d}{2^d}\right) 2^E,
+   \]
+where \(b_i\) is 0 or 1 and \(E\) is an integer.
+<ul>
+<li>\(d\) determines the <i>resolution</i></li>
+<li>the range of \(E\) determines the <i>scope</i> or <i>extent</i></li>
+
+</ul></li>
+<li>IEEE Standard (double-precision; 64 bits)
+<ul>
+<li>\(d = 52\) and \(-1022 \le E \le 1023\)</li>
+<li>\(\fbox{eps} = 2^{-52} \approx 2\times 10^{-16}\)</li>
+<li><code>realmin</code>, <code>realmax</code></li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org67b7aec">
+<h3 id="org67b7aec">Floating-Point Numbers</h3>
+<ul>
+<li>Key features
+<ul>
+<li>On any interval of the form \([2^E, 2^{E+1})\), there are \(2^d\) evenly-spaced f-p numbers.</li>
+<li>The spacing between two adjacent f-p numbers in \([2^E, 2^{E+1})\) is \(2^{E-d} = 2^E \, \fbox{eps}\).</li>
+<li>The gap between 1 and the next f-p number is \(\fbox{eps}\), the machine epsilon.</li>
+<li>Representation error (in relative sense) is bounded by \(\frac{1}{2} \fbox{eps}\).</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org8f36abe">
+<h3 id="org8f36abe">Conditioning (of a problem)</h3>
+<ul>
+<li>The condition number measures the ratio of error in the result (or output) to error in the data (or input).</li>
+<li>Recall the definition of condition number \(\kappa_f(x)\)</li>
+<li>A large condition number implies that the error in a result may be much greater than the round-off error used to compute it.</li>
+<li>Catastrophic cancellation is one of the most common sources of loss of precision.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org891555a">
+<h3 id="org891555a">Stability (of an algorithm)</h3>
+<ul>
+<li>When an algorithm produces much more error than can be explained by the condition number, the algorithm is unstable.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org492a4f8">
+<h2 id="org492a4f8">Square Linear Systems</h2>
+<div class="outline-text-2" id="text-org492a4f8">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orga98eda1">
+<h3 id="orga98eda1">Polynomial Interpolation</h3>
+<ul>
+<li>Polynomial interpolation leads to a square linear system of equations with a Vandermonde matrix.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orga41afaf">
+<h3 id="orga41afaf">Gaussian Elimination and (P)LU Factorization</h3>
+<ul>
+<li>A triangular linear system is solved by backward substitution or forward elimination.</li>
+<li>A general linear system is solved by Gaussian elimination.</li>
+<li>Gaussian elimination (with partial pivoting) is equivalent to (P)LU factorization.</li>
+<li>Solving a triangular linear system of size \(n \times n\) takes \(\sim n^2\) flops.</li>
+<li>PLU factorization takes \(\sim \frac{2}{3} n^2\) flops.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf182e3e">
+<h3 id="orgf182e3e">Norms</h3>
+<ul>
+<li>A norm generalizes the notion of length for vectors and matrices.</li>
+<li>Vector norm
+\[
+   \Norm{\bv}{p} = \left( \sum_{i=1}^{n} \abs{b_i}^p \right)^{1/p}, \quad p \in [1, \infty)
+   \]
+and
+\[
+   \Norm{\bv}{\infty} = \max_{i} \abs{v_i}
+   \]</li>
+
+</ul>
+</section>
+<section id="slide-orgf182e3e-split">
+
+<h3>Norms</h3>
+<ul>
+<li>Matrix norm (induced)
+\[
+   \Norm{A}{p} = \max_{\Norm{\bx}{p}=1} \Norm{A\bx}{p}, \quad p \in [1, \infty]
+   \]</li>
+<li>Frobenius norm (matrix)
+\[
+   \Norm{A}{F} = \left( \sum_{i} \sum_{j} \abs{a_{i,j}}^2 \right)^{1/2}
+   \]</li>
+<li>MATLAB: <code>norm</code> can calculate both vector and matrix norms</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org6952daf">
+<h3 id="org6952daf">Row and Column Operations</h3>
+<p>
+Various row and column operations can be emulated by matrix multiplications. ("Left-multiplication for row actions, right-multiplication for column actions")
+</p>
+
+<ul>
+<li>row/column extraction (unit vector)</li>
+<li>row/column swap (elementary permutation matrix)</li>
+<li>row/column rearrangement (permutation matrix)</li>
+<li>row replacement \(R_i \to R_i + c R_j\) (Gaussian transformation matrix)</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org8de1850">
+<h3 id="org8de1850">Conditioning/Stability</h3>
+<ul>
+<li>Partial pivoting is needed for numerical stability.</li>
+<li>The matrix condition number is equal to the condition number of solving a linear system of equations.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org2822977">
+<h3 id="org2822977">Programming Notes</h3>
+<ul>
+<li>Built-in functionalities
+<ul>
+<li>backslash (<code>\</code>)</li>
+<li><code>lu</code></li>
+<li><code>norm</code></li>
+<li><code>cond</code>, <code>condest</code>, <code>linsolve</code></li>
+
+</ul></li>
+<li>Demonstration/Instructional codes
+<ul>
+<li><code>backsub</code> and <code>forelim</code></li>
+<li><code>GEnp</code> and <code>GEpp</code></li>
+<li><code>mylu</code> and <code>myplu</code></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgdaa80ef">
+<h2 id="orgdaa80ef">Overdetermined Linear Systems</h2>
+<div class="outline-text-2" id="text-orgdaa80ef">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgbf10ed8">
+<h3 id="orgbf10ed8">Polynomial Approximation</h3>
+<ul>
+<li>The most common solution to overdetermined systems is obtained by <i>least squares</i>, which minimizes the 2-norm of the residual vector.</li>
+<li>Least squares is used to find fitting functions that depend linearly on the unknown parameters.</li>
+<li>Equivalence of the LLS problem and the normal equation
+<ul>
+<li>linear algebra proof</li>
+<li>calculus proof</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgc0ffddf">
+<h3 id="orgc0ffddf">QR Factorization</h3>
+<ul>
+<li>Orthogonal sets of vectors are preferred to nonorthogonal ones in computing. (no catastrophic cancellation)</li>
+<li>Matrices with orthonormal columns and orthogonal matrices enjoy many <i>nice</i> analytical properties.</li>
+<li>QR factorization plays a role in LLS similar to the of LU factorization for square linear systems.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org2a03bea">
+<h3 id="org2a03bea">Two Types of QR Factorization</h3>
+<p>
+For \(A \in \RR^{m \times n}\), \(m \ge n\):
+</p>
+<ul>
+<li>Thick QR factorization: \(A = QR\)
+<ul>
+<li>\(Q \in \RR^{m \times m}\) orthogonal</li>
+<li>\(R \in \RR^{m \times n}\) upper triangular</li>
+<li>obtained by using successive Householder transformation matrices for <i>triangularization</i></li>
+
+</ul></li>
+<li>Thin: \(A = \widehat{Q} \widehat{R}\)
+<ul>
+<li>\(\widehat{Q} \in \RR^{m \times n}\) orthonormal columns</li>
+<li>\(\widehat{R} \in \RR^{n \times n}\) upper triangular</li>
+<li>obtained by Gram-Schmidt <i>orthonormalization</i> procedure</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc5dfb3d">
+<h3 id="orgc5dfb3d">Householder Transformation Matrices</h3>
+<ul>
+<li>A Householder transformation matrix \(H\) (associated with a vector \(\bz\)) is a <i>reflection</i> matrix which is
+<ul>
+<li>symmetric,</li>
+<li>orthogonal, and</li>
+<li>transforms \(\bz\) to \(\Norm{\bz}{2} \be_1\).</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org87b377e">
+<h3 id="org87b377e">Programming Notes</h3>
+<ul>
+<li>Built-in functionalities
+<ul>
+<li>backslash (<code>\</code>)</li>
+<li><code>qr</code></li>
+
+</ul></li>
+<li>Demonstration/Instructional codes
+<ul>
+<li><code>lsqrfact</code>: solving least squares using QR</li>
+<li><code>gs</code>: Gram-Schmidt (for homework)</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+width:1280, height:720, margin: 0.1, minScale:0.2, maxScale:2.5,
+transition:'none',
+center:false,
+reveal_history:true,
+slideNumber:'c/t',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>
